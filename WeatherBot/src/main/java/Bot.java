@@ -1,3 +1,4 @@
+import org.jetbrains.annotations.NotNull;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -67,6 +68,7 @@ public class Bot extends TelegramLongPollingBot {
             } catch (TelegramApiException e) {
                 throw new RuntimeException(e);
             }
+            Iscity = false;
         }
         else if(update.hasCallbackQuery()){
             try {
@@ -127,7 +129,7 @@ public class Bot extends TelegramLongPollingBot {
 
 
 
-    public static SendMessage sendInlineKeyBoardMessage(Long chatId) {
+   private static SendMessage sendInlineKeyBoardMessage(Long chatId) {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
         inlineKeyboardButton1.setText("Подписаться");
